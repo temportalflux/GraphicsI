@@ -19,16 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\source\egpLib\egpLib.cpp" />
+    <ClInclude Include="..\..\..\include\libflux\libflux.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\egp\egpLib.h" />
+    <ClCompile Include="..\..\..\source\libflux\libflux.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BD346E5B-45FD-40A9-BE4B-F159598AFC69}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>egpLib</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>libflux</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

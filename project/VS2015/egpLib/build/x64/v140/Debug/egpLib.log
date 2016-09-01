@@ -1,0 +1,2 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (H:\classes\Year2\A-EGP-200_Graphics\GraphicsI\project\VS2015\egpLib\build\x64\v140\Debug\) contains files shared from another project (egpLib.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  egpLib.vcxproj -> H:\classes\Year2\A-EGP-200_Graphics\GraphicsI\project\VS2015\egpLib\..\..\..\lib\x64\v140\Debug\libflux.lib

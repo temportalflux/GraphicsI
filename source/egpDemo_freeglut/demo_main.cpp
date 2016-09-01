@@ -72,10 +72,9 @@ void render()
 	// alternatively, just redraw the background - clearing is expensive :)
 
 
-
+	demo::drawTestRect();
 	demo::drawTestTriangle();
-//	demo::drawTestRect();
-//	demo::drawTestAxes();
+	demo::drawTestAxes();
 
 
 
