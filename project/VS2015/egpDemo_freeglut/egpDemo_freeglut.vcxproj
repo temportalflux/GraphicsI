@@ -188,6 +188,7 @@ xcopy "$(DEV_SDK_DIR)bin\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\*
   <ItemGroup>
     <ClCompile Include="..\..\..\source\egpDemo_freeglut\demo_main.cpp" />
     <ClCompile Include="..\..\..\source\egpDemo_freeglut\demo_utils.cpp" />
+    <ClCompile Include="..\..\..\source\egpDemo_freeglut\demo_utils_3B.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\resource\tex\bg\bg_clouds.png" />

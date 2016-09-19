@@ -38,12 +38,73 @@ double mspf = 1000.0 / fps;
 
 
 //-----------------------------------------------------------------------------
+// our game objects
+// good practice: default values for everything
+
+////****VBO handles for 1B
+unsigned int testSquareVBOs[16] = { 0 };
+const unsigned int testSquareAttribs[16] = { demo::A_POSITION, demo::A_COLOR0 };
+
+
+////****VBO handle for 2A, 2B, 2C
+unsigned int testSquareInterleavedVBO = 0;
+
+
+////****VAO handle for 2B, 2C
+unsigned int testSquareVAO = 0;
+
+
+////****IBO handle for 2C
+unsigned int testSquareIBO = 0;
+
+
+
+//-----------------------------------------------------------------------------
 // game functions
 
 // initialize game objects
 //	****mainly for good memory management, handling ram and vram
 int initGame()
 {
+	////****SETUP 1B
+	const float vertices[] =
+	{
+		-0.75f, -0.75f, -0.75f,	// bottom left
+		0.75f, -0.75f, -0.75f,	// bottom right
+		-0.75f,  0.75f, -0.75f,	// top left
+		0.75f,  0.75f, -0.75f,	// top right
+	};
+
+	const float colours[] =
+	{
+		0.5f, 0.5f, 0.5f,		// grey
+		1.0f, 0.5f, 0.5f,		// pale red
+		0.5f, 1.0f, 0.5f,		// pale green
+		1.0f, 1.0f, 0.5f,		// pale yellow
+	};
+
+	// stuff both of the above into one array
+	const float *allAttribData[2] = { vertices, colours };
+
+	// create VBO
+	demo::createMultipleVBOs(4, 2, allAttribData, testSquareVBOs);
+
+
+	////****SETUP 2A using above data
+//	testSquareInterleavedVBO = demo::createInterleavedVBO(4, 2, allAttribData);
+
+
+	////****SETUP 2B using above; comment out 2A
+//	testSquareVAO = demo::createVAO(4, 2, allAttribData, testSquareAttribs, &testSquareInterleavedVBO);
+
+
+	////****SETUP 2C using above; comment out 2B
+//	const unsigned int indices[] = {};
+
+	// create VAO, VBO and IBO
+//	testSquareVAO = demo::createIndexedVAO(4, 6, 2, allAttribData, 
+//		testSquareAttribs, indices, &testSquareInterleavedVBO, &testSquareIBO);
+
 
 	// done
 	return 1;
@@ -52,6 +113,24 @@ int initGame()
 // destroy game objects (mem)
 int termGame()
 {
+	// good practice to do this in reverse order of creation
+	//	in case something is referencing something else
+
+	////****CLEAN 2C
+	demo::deleteBufferObject(testSquareIBO);
+
+
+	////****CLEAN 2B/2C
+	demo::deleteVAO(testSquareVAO);
+
+
+	////****CLEAN 2A/2B/2C
+	demo::deleteBufferObject(testSquareInterleavedVBO);
+
+
+	////****CLEAN 1B
+	demo::deleteMultipleVBOs(2, testSquareVBOs);
+
 
 	// done
 	return 1;
@@ -72,10 +151,33 @@ void render()
 	// alternatively, just redraw the background - clearing is expensive :)
 
 
-	demo::drawTestRect();
-	demo::drawTestTriangle();
-	demo::drawTestAxes();
 
+	// test immediate mode
+//	demo::drawTestTriangle();
+//	demo::drawTestRect();
+//	demo::drawTestAxes();
+
+
+
+	////****TEST 1A
+//	demo::drawTriangleAttribs();
+//	demo::drawSquareAttribs();
+
+
+	////****TEST 1B
+	demo::drawMultipleVBOs(4, 2, GL_TRIANGLE_STRIP, testSquareVBOs, testSquareAttribs);
+
+
+	////****TEST 2A
+//	demo::drawInterleavedVBO(4, 2, GL_TRIANGLE_STRIP, testSquareInterleavedVBO, testSquareAttribs);
+
+
+	////****TEST 2B
+//	demo::drawVAO(4, GL_TRIANGLE_STRIP, testSquareVAO);
+
+
+	////****TEST 2C
+//	demo::drawIndexedVAO(6, GL_TRIANGLES, GL_UNSIGNED_INT, testSquareVAO);
 
 
 	// end frame by swapping buffers

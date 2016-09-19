@@ -1,4 +1,7 @@
-﻿  demo_main.cpp
+﻿  demo_utils_3B.cpp
+  demo_utils.cpp
+  demo_main.cpp
+  Generating Code...
   egpDemo_freeglut.vcxproj -> H:\classes\Year2\A-EGP-200_Graphics\GraphicsI\project\VS2015\egpDemo_freeglut\..\..\..\bin\x64\v140\Debug\egpDemo_freeglut.exe
   egpDemo_freeglut.vcxproj -> H:\classes\Year2\A-EGP-200_Graphics\GraphicsI\project\VS2015\egpDemo_freeglut\..\..\..\bin\x64\v140\Debug\egpDemo_freeglut.pdb (Full PDB)
   H:\classes\Year2\A-EGP-200_Graphics\DevSDKs\bin\x64\DevIL.dll

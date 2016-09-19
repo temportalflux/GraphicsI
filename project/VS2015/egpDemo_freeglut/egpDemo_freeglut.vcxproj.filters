@@ -39,6 +39,9 @@
     <ClCompile Include="..\..\..\source\egpDemo_freeglut\demo_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\egpDemo_freeglut\demo_utils_3B.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\resource\tex\bg\bg_clouds.png">
